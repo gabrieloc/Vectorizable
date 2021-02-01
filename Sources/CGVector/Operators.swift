@@ -27,6 +27,10 @@ public extension Vector {
   internal static var one: Self {
     Self(components: .init(repeating: 1, count: length))
   }
+
+  internal static var zero: Self {
+    Self(components: .init(repeating: 0, count: length))
+  }
 }
 
 extension Vector where Primitive: Divisible {
