@@ -13,13 +13,6 @@
   typealias EdgeInsets = NSEdgeInsets
 #endif
 
-extension CGFloat: Vector {
-  public var components: [CGFloat] { [self] }
-  public init(components: [CGFloat]) {
-    self = components[safe: 0] ?? 0
-  }
-}
-
 extension CGPoint: Vector {
   public var components: [CGFloat] { [x, y] }
   public init(components: [CGFloat]) {
