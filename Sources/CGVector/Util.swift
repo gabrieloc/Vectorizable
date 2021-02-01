@@ -7,8 +7,8 @@
 
 import Foundation
 
-extension Vector {
-  static var length: Int {
+public extension Vector {
+  internal static var length: Int {
     Self(components: []).components.count
   }
 
@@ -25,7 +25,7 @@ extension Vector {
   }
 }
 
-extension Vector where Primitive: FloatingPoint {
+public extension Vector where Primitive: FloatingPoint {
   static func lerp(_ a: Self, _ b: Self, _ t: Self.Primitive) -> Self {
     a * (1 - t) + b * t
   }
