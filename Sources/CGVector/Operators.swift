@@ -6,30 +6,31 @@
 //
 
 import Foundation
+import simd
 
 public extension Vector {
   static func * <V: Vector>(lhs: Self, rhs: V) -> Self where V.Primitive == Primitive {
     Self(components: lhs.components * rhs.components)
   }
 
+  static func * (lhs: Self, rhs: Primitive) -> Self {
+    Self(components: lhs.components.map { $0 * rhs })
+  }
+
   static func + <V: Vector>(lhs: Self, rhs: V) -> Self where V.Primitive == Primitive {
     Self(components: lhs.components + rhs.components)
+  }
+
+  static func + (lhs: Self, rhs: Primitive) -> Self {
+    Self(components: lhs.components.map { $0 + rhs })
   }
 
   static func - <V: Vector>(lhs: Self, rhs: V) -> Self where V.Primitive == Primitive {
     Self(components: lhs.components - rhs.components)
   }
 
-  internal static var length: Int {
-    Self(components: []).components.count
-  }
-
-  internal static var one: Self {
-    Self(components: .init(repeating: 1, count: length))
-  }
-
-  internal static var zero: Self {
-    Self(components: .init(repeating: 0, count: length))
+  static func - (lhs: Self, rhs: Primitive) -> Self {
+    Self(components: lhs.components.map { $0 - rhs })
   }
 }
 
