@@ -6,14 +6,13 @@
 //
 
 import Foundation
-import simd
 
 public extension Vector {
   static func * <V: Vector>(lhs: Self, rhs: V) -> Self where V.Scalar == Scalar {
     Self(components: lhs.components * rhs.components)
   }
 
-  static func * (lhs: Self, rhs: Scalar) -> Self {
+  static func * (lhs: Self, rhs: Self.Scalar) -> Self {
     Self(components: lhs.components.map { $0 * rhs })
   }
 
@@ -21,7 +20,7 @@ public extension Vector {
     Self(components: lhs.components + rhs.components)
   }
 
-  static func + (lhs: Self, rhs: Scalar) -> Self {
+  static func + (lhs: Self, rhs: Self.Scalar) -> Self {
     Self(components: lhs.components.map { $0 + rhs })
   }
 
@@ -29,7 +28,7 @@ public extension Vector {
     Self(components: lhs.components - rhs.components)
   }
 
-  static func - (lhs: Self, rhs: Scalar) -> Self {
+  static func - (lhs: Self, rhs: Self.Scalar) -> Self {
     Self(components: lhs.components.map { $0 - rhs })
   }
 }
@@ -37,6 +36,10 @@ public extension Vector {
 extension Vector where Scalar: Divisible {
   static func / <V: Vector>(lhs: Self, rhs: V) -> Self where V.Scalar == Scalar {
     Self(components: lhs.components / rhs.components)
+  }
+
+  static func / (lhs: Self, rhs: Self.Scalar) -> Self {
+    Self(components: lhs.components.map { $0 / rhs })
   }
 }
 

@@ -93,6 +93,34 @@ final class CGVectorTests: XCTestCase {
     )
   }
 
+  func testAdditionAgainstScalar() {
+    XCTAssertEqual(
+      kd(components: [1, 2]) + 3,
+      kd(components: [4, 5])
+    )
+  }
+
+  func testMultiplicationAgainstScalar() {
+    XCTAssertEqual(
+      kd(components: [1, 2]) * 3,
+      kd(components: [3, 6])
+    )
+  }
+
+  func testSubtractionAgainstScalar() {
+    XCTAssertEqual(
+      kd(components: [1, 2]) - 3,
+      kd(components: [-2, -1])
+    )
+  }
+
+  func testDivisionAgainstScalar() {
+    XCTAssertEqual(
+      kd(components: [1, 2]) / 2,
+      kd(components: [0.5, 1])
+    )
+  }
+
   static var allTests = [
     ("testAdditionAgainstLowerDimensionalVector", testAdditionAgainstLowerDimensionalVector),
     ("testMultiplicationAgainstLowerDimensionalVector", testMultiplicationAgainstLowerDimensionalVector),
@@ -106,5 +134,9 @@ final class CGVectorTests: XCTestCase {
     ("testMultiplicationAgainstHigherDimensionalVector", testMultiplicationAgainstHigherDimensionalVector),
     ("testSubtractionAgainstHigherDimensionalVector", testSubtractionAgainstHigherDimensionalVector),
     ("testDivisionAgainstHigherDimensionalVector", testDivisionAgainstHigherDimensionalVector),
+    ("testAdditionAgainstScalar", testAdditionAgainstScalar),
+    ("testMultiplicationAgainstScalar", testMultiplicationAgainstScalar),
+    ("testSubtractionAgainstScalar", testSubtractionAgainstScalar),
+    ("testDivisionAgainstScalar", testDivisionAgainstScalar),
   ]
 }
