@@ -21,11 +21,11 @@ public extension Vector {
   }
 }
 
-func distance<V: Vector>(_ lhs: V, _ rhs: V) -> V.Scalar {
+public func distance<V: Vector>(_ lhs: V, _ rhs: V) -> V.Scalar {
   sqrt((lhs.components - rhs.components).reduce(0) { $0 + $1 * $1 })
 }
 
-func lerp<V: Vector>(_ a: V, _ b: V, _ t: V.Scalar) -> V {
+public func lerp<V: Vector>(_ a: V, _ b: V, _ t: V.Scalar) -> V {
   a * (1 - t) + b * t
 }
 
