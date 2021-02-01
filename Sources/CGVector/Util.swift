@@ -19,16 +19,14 @@ public extension Vector {
   static var zero: Self {
     Self(components: .init(repeating: 0, count: length))
   }
-
-  static func distance(_ lhs: Self, _ rhs: Self) -> Scalar {
-    sqrt((lhs.components - rhs.components).reduce(0) { $0 + $1 * $1 })
-  }
 }
 
-public extension Vector where Scalar: FloatingPoint {
-  static func lerp(_ a: Self, _ b: Self, _ t: Self.Scalar) -> Self {
-    a * (1 - t) + b * t
-  }
+func distance<V: Vector>(_ lhs: V, _ rhs: V) -> V.Scalar {
+  sqrt((lhs.components - rhs.components).reduce(0) { $0 + $1 * $1 })
+}
+
+func lerp<V: Vector>(_ a: V, _ b: V, _ t: V.Scalar) -> V {
+  a * (1 - t) + b * t
 }
 
 public extension Vector {

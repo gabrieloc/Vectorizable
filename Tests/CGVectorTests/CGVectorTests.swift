@@ -33,7 +33,7 @@ final class CGVectorTests: XCTestCase {
   func testDivisionAgainstLowerDimensionalVector() {
     XCTAssertEqual(
       kd(components: [1, 2]) / kd(components: [2]),
-      kd(components: [0.5, kd.Primitive.infinity])
+      kd(components: [0.5, kd.Scalar.infinity])
     )
   }
 
