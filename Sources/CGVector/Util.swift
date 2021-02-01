@@ -20,20 +20,20 @@ public extension Vector {
     Self(components: .init(repeating: 0, count: length))
   }
 
-  static func distance(lhs: Self, rhs: Self) -> Primitive {
+  static func distance(_ lhs: Self, _ rhs: Self) -> Scalar {
     sqrt((lhs.components - rhs.components).reduce(0) { $0 + $1 * $1 })
   }
 }
 
-public extension Vector where Primitive: FloatingPoint {
-  static func lerp(_ a: Self, _ b: Self, _ t: Self.Primitive) -> Self {
+public extension Vector where Scalar: FloatingPoint {
+  static func lerp(_ a: Self, _ b: Self, _ t: Self.Scalar) -> Self {
     a * (1 - t) + b * t
   }
 }
 
 public extension Vector {
-  var x: Primitive { components[safe: 0] ?? 0 }
-  var y: Primitive { components[safe: 1] ?? 0 }
-  var z: Primitive { components[safe: 2] ?? 0 }
-  var w: Primitive { components[safe: 3] ?? 0 }
+  var x: Scalar { components[safe: 0] ?? 0 }
+  var y: Scalar { components[safe: 1] ?? 0 }
+  var z: Scalar { components[safe: 2] ?? 0 }
+  var w: Scalar { components[safe: 3] ?? 0 }
 }

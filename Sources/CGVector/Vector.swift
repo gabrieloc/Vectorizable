@@ -6,7 +6,7 @@
 //
 
 public protocol Vector: Equatable {
-  associatedtype Primitive: FloatingPoint
-  var components: [Primitive] { get }
-  init(components: [Primitive])
+  associatedtype Scalar: FloatingPoint
+  var components: [Scalar] { get }
+  init(components: [Scalar])
 }

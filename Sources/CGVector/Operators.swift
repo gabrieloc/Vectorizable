@@ -9,33 +9,33 @@ import Foundation
 import simd
 
 public extension Vector {
-  static func * <V: Vector>(lhs: Self, rhs: V) -> Self where V.Primitive == Primitive {
+  static func * <V: Vector>(lhs: Self, rhs: V) -> Self where V.Scalar == Scalar {
     Self(components: lhs.components * rhs.components)
   }
 
-  static func * (lhs: Self, rhs: Primitive) -> Self {
+  static func * (lhs: Self, rhs: Scalar) -> Self {
     Self(components: lhs.components.map { $0 * rhs })
   }
 
-  static func + <V: Vector>(lhs: Self, rhs: V) -> Self where V.Primitive == Primitive {
+  static func + <V: Vector>(lhs: Self, rhs: V) -> Self where V.Scalar == Scalar {
     Self(components: lhs.components + rhs.components)
   }
 
-  static func + (lhs: Self, rhs: Primitive) -> Self {
+  static func + (lhs: Self, rhs: Scalar) -> Self {
     Self(components: lhs.components.map { $0 + rhs })
   }
 
-  static func - <V: Vector>(lhs: Self, rhs: V) -> Self where V.Primitive == Primitive {
+  static func - <V: Vector>(lhs: Self, rhs: V) -> Self where V.Scalar == Scalar {
     Self(components: lhs.components - rhs.components)
   }
 
-  static func - (lhs: Self, rhs: Primitive) -> Self {
+  static func - (lhs: Self, rhs: Scalar) -> Self {
     Self(components: lhs.components.map { $0 - rhs })
   }
 }
 
-extension Vector where Primitive: Divisible {
-  static func / <V: Vector>(lhs: Self, rhs: V) -> Self where V.Primitive == Primitive {
+extension Vector where Scalar: Divisible {
+  static func / <V: Vector>(lhs: Self, rhs: V) -> Self where V.Scalar == Scalar {
     Self(components: lhs.components / rhs.components)
   }
 }
