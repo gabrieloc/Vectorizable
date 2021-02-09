@@ -60,3 +60,5 @@ extension EdgeInsets: Vector {
     lhs.components == rhs.components
   }
 }
+
+extension CGFloat: Divisible {}
