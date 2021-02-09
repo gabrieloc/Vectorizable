@@ -1,7 +1,7 @@
 import XCTest
 
-import CGVectorTests
+import VectorizableTests
 
 var tests = [XCTestCaseEntry]()
-tests += CGVectorTests.allTests()
+tests += VectorizableTests.allTests()
 XCTMain(tests)

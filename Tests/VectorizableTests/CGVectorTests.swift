@@ -1,7 +1,7 @@
 import XCTest
-@testable import CGVector
+@testable import Vectorizable
 
-final class CGVectorTests: XCTestCase {
+final class VectorizableTests: XCTestCase {
   struct kd: Vector {
     var components: [Float]
     init(components: [Float]) {

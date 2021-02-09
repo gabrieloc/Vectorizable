@@ -74,7 +74,7 @@ extension Array where Element: Numeric {
   }
 }
 
-protocol Divisible: Numeric {
+public protocol Divisible: Numeric {
   static func / (lhs: Self, rhs: Self) -> Self
 }
 

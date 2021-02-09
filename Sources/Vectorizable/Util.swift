@@ -19,6 +19,16 @@ public extension Vector {
   static var zero: Self {
     Self(components: .init(repeating: 0, count: length))
   }
+
+  var magnitude: Scalar {
+    sqrt(x * x + y * y)
+  }
+}
+
+public extension Vector where Scalar: Divisible {
+  var normalized: Self {
+    self / magnitude
+  }
 }
 
 public func distance<V: Vector>(_ lhs: V, _ rhs: V) -> V.Scalar {

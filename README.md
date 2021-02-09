@@ -1,4 +1,4 @@
-# CGVector
+# Vectorizable
 
 Adapters and utilities for treating CG types as generic k-dimensional vectors.
 
