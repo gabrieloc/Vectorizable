@@ -33,6 +33,12 @@ public extension Vector {
   }
 }
 
+public extension Vector where Scalar: FloatingPoint {
+  static func / <V2: Vector>(lhs: Self, rhs: V2) -> Self where Scalar == V2.Scalar {
+    Self(components: zip(lhs.components, rhs.components).map { $0.0 / $0.1 })
+  }
+}
+
 extension Vector where Scalar: Divisible {
   static func / <V: Vector>(lhs: Self, rhs: V) -> Self where V.Scalar == Scalar {
     Self(components: lhs.components / rhs.components)

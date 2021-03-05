@@ -44,4 +44,44 @@ public extension Vector {
   var y: Scalar { components[safe: 1] ?? 0 }
   var z: Scalar { components[safe: 2] ?? 0 }
   var w: Scalar { components[safe: 3] ?? 0 }
+
+  static var right: Self {
+    .init(components: [1, 0, 0])
+  }
+
+  static var left: Self {
+    .init(components: [-1, 0, 0])
+  }
+
+  static var up: Self {
+    .init(components: [0, 1, 0])
+  }
+
+  static var down: Self {
+    .init(components: [0, -1, 0])
+  }
+
+  static var forward: Self {
+    .init(components: [0, 0, 1])
+  }
+
+  static var back: Self {
+    .init(components: [0, 0, -1])
+  }
+}
+
+public func max<V1: Vector, V2: Vector>(_ lhs: V1, _ rhs: V2) -> V1 where V1.Scalar == V2.Scalar {
+  V1(components: zip(lhs.components, rhs.components).map { Swift.max($0.0, $0.1) })
+}
+
+public func round<V: Vector>(_ vector: V) -> V {
+  V(components: vector.components.map { Foundation.round($0) })
+}
+
+public func ceil<V: Vector>(_ vector: V) -> V {
+  V(components: vector.components.map { Foundation.ceil($0) })
+}
+
+public func floor<V: Vector>(_ vector: V) -> V {
+  V(components: vector.components.map { Foundation.floor($0) })
 }
